@@ -5,7 +5,6 @@ class TherapistsController < ApplicationController
 
   def show
     @therapist = User.find(params[:id])
-    @booking = Booking.new
   end
 
   private
