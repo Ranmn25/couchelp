@@ -1,0 +1,44 @@
+.card-container {
+  margin: 130px 150px 150px;
+}
+
+ul {
+	padding-left: 0;
+	margin-bottom: 0;
+}
+a:hover {
+	text-decoration: none;
+}
+:focus {
+    outline: none;
+}
+
+.booking-images {
+  img{
+    height: 1100px;
+    margin: -280px 0px;
+  }
+}
+.booking-input{
+  width: 100%;
+}
+.button-form{
+  margin-top: 10px;
+}
+.content-form{
+  font-size: 55px;
+  font-weight: 900;
+  // text-align: center;
+  }
+  .p-size {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+.btn {
+  border: none;
+  border-radius: 4px !important;
+  width: 100%;
+  margin-top: 20px;
+
+}
