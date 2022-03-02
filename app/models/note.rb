@@ -1,3 +1,3 @@
 class Note < ApplicationRecord
-  belongs_to :sessions
+  belongs_to :booking
 end
