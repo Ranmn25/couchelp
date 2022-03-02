@@ -1,0 +1,23 @@
+<div class="sessions-container">
+  <h1>sessions-</h1>
+  <div class="sessions-info">
+    <% @applied_sessions.each do |sessoins| %>
+      <p><%= sessoins.session.title %></p>
+      <p><%= sessoins.time %></p>
+    <% end %>
+  </div>
+
+  <h1>Received sessions-</h1>
+  <div class="sessions-info">
+    <% @received_sessions.each do |sessoins| %>
+      <%= booking.session.title %></li>
+      <%= booking.time %></li>
+      <% if booking.status == 'pending' %>
+        <%= link_to 'accept', sessoins_path(sessoins, {status: 'accepted'}), method: :patch %>
+        <%= link_to 'decline', sessoins_path(sessoins, {status: 'declined'}), method: :patch %>
+      <% else %>
+        <%= sessoins.status %>
+      <% end %>
+    <% end  %></ul>
+   </div>
+</div>

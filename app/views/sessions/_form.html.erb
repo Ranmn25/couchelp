@@ -1,0 +1,37 @@
+<div class="row justify-content-center card-container">
+  <div class="col-md-6">
+    <div>
+      <div class="mb-5">
+        <div class="row">
+          <h1 class="content-form">Book A Session in seconds!</h1>
+          <p class="p-size">Choose from millions of available spaces, or reserve your space in advance. Join over 5.5 million drivers enjoying easy parking.</p>
+          <div>
+            <div class="col-md-12 form-group">
+              <%= simple_form_for [therapist, session], url: therapist_sessions_path(therapist), method: :post do |f| %>
+                <%= f.input :time, class: "booking-input" %>
+                 <%= f.input :date, class: "booking-input" %>
+                <%= f.submit class: "btn btn-primary button-form btn" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <span class="submitting"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="form-message-warning mt-4"></div>
+    <div id="form-message-success">
+      Your message was sent, thank you!
+    </div>
+  </div>
+  <div class="col-md-6 booking-images">
+    <p><%# image_tag("booking_form", :alt => "booking") %></p>
+  </div>
+</div>

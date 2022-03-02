@@ -1,0 +1,19 @@
+// Basic Button
+.button {
+  display: block;
+  width: 200px;
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  background-color: #e6ecff;
+  color: #3363ff;
+  text-decoration: none;
+  transition: .2s;
+  border-radius: 0.4rem;
+}
+
+.button:hover {
+  background-color: darken($color: #e6ecff, $amount: 3%);
+}
