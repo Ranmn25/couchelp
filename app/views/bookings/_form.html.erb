@@ -7,7 +7,7 @@
           <p class="p-size">Choose from millions of available spaces, or reserve your space in advance. Join over 5.5 million drivers enjoying easy parking.</p>
           <div>
             <div class="col-md-12 form-group">
-              <%= simple_form_for [therapist, booking], url: therapist_booking_path(therapist), method: :post do |f| %>
+              <%= simple_form_for [therapist, booking], url: therapist_bookings_path(therapist), method: :post do |f| %>
                 <%= f.input :time, class: "booking-input" %>
                  <%= f.input :date, class: "booking-input" %>
                 <%= f.submit class: "btn btn-primary button-form btn" %>

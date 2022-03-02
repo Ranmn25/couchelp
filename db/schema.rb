@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(version: 2022_03_02_115240) do
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
+    t.string "status"
+    t.bigint "patient_id", null: false
+    t.bigint "therapist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_bookings_on_patient_id"
+    t.index ["therapist_id"], name: "index_bookings_on_therapist_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "recipient_id", null: false
@@ -65,22 +77,10 @@ ActiveRecord::Schema.define(version: 2022_03_02_115240) do
   create_table "notes", force: :cascade do |t|
     t.text "content"
     t.boolean "is_private"
-    t.bigint "session_id", null: false
+    t.bigint "booking_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["session_id"], name: "index_notes_on_session_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
-    t.string "status"
-    t.bigint "patient_id", null: false
-    t.bigint "therapist_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["patient_id"], name: "index_sessions_on_patient_id"
-    t.index ["therapist_id"], name: "index_sessions_on_therapist_id"
+    t.index ["booking_id"], name: "index_notes_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,5 +104,5 @@ ActiveRecord::Schema.define(version: 2022_03_02_115240) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "availabilities", "users"
-  add_foreign_key "notes", "sessions"
+  add_foreign_key "notes", "bookings"
 end
