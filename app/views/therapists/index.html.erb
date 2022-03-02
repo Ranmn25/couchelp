@@ -5,7 +5,7 @@
     <% @therapists.each do |therapist| %>
     <div class="therapists_cards">
       <div class="therapist_card">
-        <img class="card__img" src="https://images.unsplash.com/photo-1506318164473-2dfd3ede3623?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3300&amp;q=80" alt="Canyons">
+        <%= cl_image_tag therapist.photo.key, class:"card__img" %>
         <div class="therapist_card_info">
           <h4 class="therapists_card__header">Dr. <%= therapist.first_name %> <%= therapist.last_name %></h4>
           <p class="therapists_card__text">This is a therapist. This is a therapist. This is a therapist</p>
