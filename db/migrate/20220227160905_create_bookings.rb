@@ -1,6 +1,6 @@
-class CreateSessions < ActiveRecord::Migration[6.1]
+class CreateBookings < ActiveRecord::Migration[6.1]
   def change
-    create_table :sessions do |t|
+    create_table :bookings do |t|
       t.date :date
       t.time :time
       t.string :status
