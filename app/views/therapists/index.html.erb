@@ -8,7 +8,7 @@
         <%= cl_image_tag therapist.photo.key, class:"card__img" %>
         <div class="therapist_card_info">
           <h4 class="therapists_card__header">Dr. <%= therapist.first_name %> <%= therapist.last_name %></h4>
-          <p class="therapists_card__text">This is a therapist. This is a therapist. This is a therapist</p>
+          <p class="therapists_card__text"><%= therapist.area_of_expertise %></p>
           <%= link_to 'View full profile', therapist_path(therapist), class: 'therapists_btn' %>
         </div>
       </div>
