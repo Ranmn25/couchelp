@@ -1,12 +1,20 @@
+.show-header {
+  font-size: 22px;
+  margin-top: 20px;
+  font-style: italic;
+}
+
 .show-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  gap: 40px;
 }
 
 .show-card {
   display: grid;
-  grid-template-rows: max-content 200px 1fr;
   border: 0.5px solid #3bb0ff;
   text-align: center;
 }
@@ -20,6 +28,7 @@
 .show-links{
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 50px;
 }
 
 body{
