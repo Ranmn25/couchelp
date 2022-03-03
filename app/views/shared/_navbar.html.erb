@@ -10,10 +10,10 @@
       </ul>
       <ul>
         <% if !user_signed_in? %>
-          <li class="btn btn-primary"><%= link_to "LOGIN", new_user_session_path, class: "heder_login-link", id: "sign_up"%></li>
-          <li class="btn btn-primary"><%= link_to "SIGNUP", new_user_registration_path, class: "heder_login-link", id: "sign_up"%></li>
+          <li class="btn btn-primary" id='login-btn'><%= link_to "LOGIN", new_user_session_path, class: "heder_login-link", id: "sign_up"%></li>
+          <li class="btn btn-primary" id='login-btn'><%= link_to "SIGNUP", new_user_registration_path, class: "heder_login-link", id: "sign_up"%></li>
         <% else %>
-            <li class="btn btn-primary"><%= link_to "LOGOUT",  destroy_user_session_path, :method => :delete, class: "heder_login-link", id: "sign_up"%></li>
+            <li class="btn btn-primary" id='login-btn'><%= link_to "LOGOUT",  destroy_user_session_path, :method => :delete, class: "heder_login-link", id: "sign_up"%></li>
           <% end %>
         </ul>
       </div>
