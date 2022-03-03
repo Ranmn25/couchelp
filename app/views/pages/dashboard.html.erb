@@ -1,0 +1,26 @@
+<div>
+  <div class='dash-grid'>
+    <div class='profile-grid'>
+      <p>this will be profile </p>
+        <p><%= @profile.first_name %>
+        <%= @profile.last_name %></p>
+    </div>
+    <div class='bookings-grid'>
+      <p>This is your bookings
+        <% @therapist_bookings.each do |booking| %>
+          <%= booking.booking.title %>
+          <%= booking.time %>
+        <% end %>
+      </p>
+    </div>
+    <div class='messages-grid'>
+      <p>this will be messages</p>
+    </div>
+    <div class='sessions-grid'>
+      <p>this will be sessions</p>
+    </div>
+    <div class='articles-grid'>
+      <p>this will be articles</p>
+    </div>
+  </div>
+</div>

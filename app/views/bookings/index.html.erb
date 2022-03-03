@@ -10,8 +10,8 @@
   <h1>Received bookings-</h1>
   <div class="bookings-info">
     <% @received_bookings.each do |bookings| %>
-      <%= booking.booking.title %></li>
-      <%= booking.time %></li>
+      <li><%= booking.booking.title %></li>
+      <li><%= booking.time %></li>
       <% if booking.status == 'pending' %>
         <%= link_to 'accept', bookings_path(bookings, {status: 'accepted'}), method: :patch %>
         <%= link_to 'decline', bookings_path(bookings, {status: 'declined'}), method: :patch %>
