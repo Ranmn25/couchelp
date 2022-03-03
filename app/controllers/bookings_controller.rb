@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.therapist = @therapist
     @booking.status = 'pending'
     if @booking.save
-      redirect_to root_path, notice: 'Booked successfully.'
+      redirect_to dashboard_path, notice: 'Booked successfully.'
     else
       render :new
     end
