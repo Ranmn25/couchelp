@@ -1,5 +1,5 @@
 .navbar {
-  background: #1192FD;
+  background: #30A3FB;
   border: none;
   width: 100%;
 }
@@ -12,7 +12,7 @@
   position: relative;
   height: 100px;
   width: 100%;
-  background:  #1192FD;
+  background:  #30A3FB;
   margin-bottom: 50px;
   // overflow-x: hidden;
 }
@@ -33,7 +33,20 @@
   border-radius: 100% 50%;
   width: 55%;
   height: 100%;
-  background: #1192FD;
+  background: #30A3FB;
   transform: translate(-4%, 40%);
   z-index: -1;
+}
+
+#login-btn {
+  background-color: #30A3FB;
+  border-radius: 18px;
+
+  a{
+    text-decoration: none;
+    color: #F5F5F5;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 17px;
+  }
 }
