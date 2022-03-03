@@ -1,4 +1,4 @@
-<div>
+<div class='container'>
   <div class='dash-grid'>
     <div class='profile-grid'>
       <p>this will be profile </p>
@@ -6,12 +6,15 @@
         <%= @profile.last_name %></p>
     </div>
     <div class='bookings-grid'>
-      <p>This is your bookings
+      <p>Bookings</p>
         <% @therapist_bookings.each do |booking| %>
-          <%= booking.booking.title %>
-          <%= booking.time %>
+          <p>
+            <%= booking.date %>
+            <%= booking.time %>
+            <%= booking.status %>
+          </p>
         <% end %>
-      </p>
+
     </div>
     <div class='messages-grid'>
       <p>this will be messages</p>
