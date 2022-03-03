@@ -12,7 +12,7 @@ puts 'Cleaning database...'
 User.destroy_all
 puts 'Creating 5 patients'
 
-patient1 = { first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456', is_therapist: false }
+patient1 = { first_name: "Filomena", last_name: "Schimmel", email: "filomena@schimmel.com", password: '123456', is_therapist: false }
 patient2 = { first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456', is_therapist: false }
 patient3 = { first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456', is_therapist: false }
 patient4 = { first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456', is_therapist: false }
