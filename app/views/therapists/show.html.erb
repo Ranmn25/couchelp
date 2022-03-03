@@ -2,13 +2,14 @@
   <h1>Dr. <%=@therapist.first_name %> <%= @therapist.last_name %></h1>
   <%= cl_image_tag @therapist.photo.key %>
   <h3><%= @therapist.area_of_expertise %></h3>
-  <div class='show-info'>
-    <h3>Little about me</h3>
-    <p><%= @therapist.description %></p>
-  </div>
 </div>
 <div class='show-links'>
   <p><%= link_to "Book new booking",  new_therapist_booking_path(@therapist), class:"button" %></p>
   <p><%= link_to "Message",  new_therapist_message_path(@therapist), class:"button" %></p>
   <p><%= link_to "Back", therapists_path, class:"button" %></p>
+</div>
+
+<div class='show-info'>
+  <h3>Little about me</h3>
+  <p><%= @therapist.description %></p>
 </div>
