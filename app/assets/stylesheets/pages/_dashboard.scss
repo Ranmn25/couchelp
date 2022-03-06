@@ -4,6 +4,11 @@
   grid-template-rows: repeat(2, 200px) ;
   margin-top: 70px;
   gap: 20px;
+
+  h4{
+    color: #F5F5F5;
+    text-shadow: 1px 1px 1px #95999c;
+  }
 }
 
 .dashbord-profile-name {
@@ -11,36 +16,51 @@
 }
 
 .profile-grid{
+  background-image: linear-gradient(to right, #90cefd, #a3d6fd, #b7dffe, #cae7fe, #ddf0fe, #f0f9ff);
   padding: 40px;
-  border: 0.5px solid black;
+  border: 0.5px solid #cae7fe;
+  border-radius: 8px;
+  box-shadow: 0.5px 0.5px #EFEFEF ;
   p{
     font-size: 18px;
   }
 }
 .bookings-grid{
+  background-image: linear-gradient(to left, #90cefd, #a3d6fd, #b7dffe, #cae7fe, #ddf0fe, #f0f9ff);
   padding: 40px;
-  border: 0.5px solid black;
+  border: 0.5px solid #cae7fe;
+  box-shadow: 0.5px 0.5px #EFEFEF ;
+  border-radius: 8px;
   p{
     font-size: 18px;
   }
 }
 .messages-grid{
+  background-image: linear-gradient(to right, #90cefd, #a3d6fd, #b7dffe, #cae7fe, #ddf0fe, #f0f9ff);
   padding: 40px;
-  border: 0.5px solid black;
+  border: 0.5px solid #cae7fe;
+  box-shadow: 0.5px 0.5px #EFEFEF ;
+  border-radius: 8px;
   p{
     font-size: 18px;
   }
 }
 .sessions-grid{
+  background-image: linear-gradient(to right, #90cefd, #a3d6fd, #b7dffe, #cae7fe, #ddf0fe, #f0f9ff);
   padding: 40px;
-  border: 0.5px solid black;
+  border: 0.5px solid #cae7fe;
+  box-shadow: 0.5px 0.5px #EFEFEF ;
+  border-radius: 8px;
   p{
     font-size: 18px;
   }
 }
 .articles-grid{
+  background-image: linear-gradient(to left, #90cefd, #a3d6fd, #b7dffe, #cae7fe, #ddf0fe, #f0f9ff);
   padding: 40px;
-  border: 0.5px solid black;
+  border: 0.5px solid #cae7fe;
+  box-shadow: 0.5px 0.5px #EFEFEF ;
+  border-radius: 8px;
   p{
     font-size: 18px;
   }
