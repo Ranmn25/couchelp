@@ -1,10 +1,16 @@
 <% if booking.status == "pending" %>
-  <%= simple_form_for(booking) do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
-    <%= f.button :submit, 'Accept', class: 'btn btn-primary' %>
-  <% end %>
-  <%= simple_form_for(booking) do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
-    <%= f.button :submit, 'Reject', class: 'btn btn-warning' %>
-  <% end %>
+  <div class='d-flex'>
+    <%= simple_form_for(booking) do |f| %>
+      <div class="hidden-status-input">
+        <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
+      </div>
+      <%= f.button :submit, 'Accept', class: 'btn btn-primary'  %>
+    <% end %>
+    <%= simple_form_for(booking) do |f| %>
+      <div class="hidden-status-input">
+        <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
+      </div>
+      <%= f.button :submit, 'Reject', class: 'btn btn-warning mb-0', id: 'reject-btn' %>
+    <% end %>
+  </div>
 <% end %>
