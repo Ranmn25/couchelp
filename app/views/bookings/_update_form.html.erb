@@ -1,0 +1,32 @@
+<div class="row justify-content-center card-container">
+  <div class="col-md-6">
+    <div>
+      <div class="mb-5">
+        <div class="row">
+          <h1 class="content-form">Update your Booking with Dr. <%= booking.therapist.first_name %> <%= booking.therapist.last_name %></h1>
+          <div>
+            <div class="col-md-12 form-group">
+              <%= simple_form_for(booking) do |f| %>
+                <%= f.input :time, class: "booking-input" %>
+                 <%= f.input :date, class: "booking-input" %>
+                <%= f.submit class: "btn btn-primary button-form btn" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <span class="submitting"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 booking-images">
+    <p><%# image_tag("booking_form", :alt => "booking") %></p>
+  </div>
+</div>

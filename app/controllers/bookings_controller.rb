@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: %i[show update]
+  before_action :find_booking, only: %i[show update destroy edit]
+  before_action :find_therapist, only: :edit
+
   def index
-    @applied_bookings = current_user.therapist_bookings
-    @received_bookings = current_user.received_bookings
   end
 
   def show
@@ -27,25 +27,33 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    if @booking.update(booking_update_params)
+    if @booking.update(booking_params)
       redirect_to dashboard_path, notice: 'Booking updated'
     else
       redirect_to dashboard_path, alert: 'Booking could not be updated'
     end
   end
 
+  def destroy
+    @booking.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :time)
-  end
-
-  def booking_update_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:date, :time, :status)
   end
 
   def find_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def find_therapist
+    @therapist = User.find(params[:id])
   end
 end
