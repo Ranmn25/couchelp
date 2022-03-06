@@ -5,6 +5,11 @@
 .header2 {
   margin-bottom: 30px;
   margin-top: 50px;
+  position: relative;
+  font-weight: 700;
+  line-height: 70px;
+  font-size: 35px;
+
 }
 
 .center_page {
@@ -62,18 +67,28 @@
 }
 
 .article_btn {
-  display: block;
+  // display: block;
+  // width: 100%;
+  // font-size: 1rem;
+  // padding: 1rem;
+  // text-align: center;
+  // border: none;
+  // cursor: pointer;
+  // background-color: #e6ecff;
+  // color: #3363ff;
+  // text-decoration: none;
+  // transition: .2s;
+  // border-radius: 0.4rem;
+  padding: 10px;
+  color: #fff;
+  border: solid #fff;
+  margin-top: 20px;
   width: 100%;
-  font-size: 1rem;
-  padding: 1rem;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  background-color: #e6ecff;
-  color: #3363ff;
-  text-decoration: none;
-  transition: .2s;
-  border-radius: 0.4rem;
+  height: 42px;
+  background: linear-gradient(180deg, #0089ff 0%, #78d2ff 100%);
+  border-radius: 50px;
+
+
 }
 
 .article_btn:hover {
