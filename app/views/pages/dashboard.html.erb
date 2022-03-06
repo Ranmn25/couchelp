@@ -16,6 +16,7 @@
             <%= booking.date %>
             <%= booking.time %>
             <%= booking.status %>
+            <%= render 'booking_actions', booking: booking %>
           </p>
           <% end %>
         <% else %>

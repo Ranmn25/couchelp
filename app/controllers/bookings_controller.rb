@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :find_booking, only: %i[show update]
   def index
-    @applied_bookings = current_user.bookings
+    @applied_bookings = current_user.therapist_bookings
     @received_bookings = current_user.received_bookings
   end
 
@@ -27,10 +27,22 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    if @booking.update(booking_update_params)
+      redirect_to dashboard_path, notice: 'Booking updated'
+    else
+      redirect_to dashboard_path, alert: 'Booking could not be updated'
+    end
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:date, :time)
+  end
+
+  def booking_update_params
+    params.require(:booking).permit(:status)
   end
 
   def find_booking
