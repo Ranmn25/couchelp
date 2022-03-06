@@ -1,23 +1,8 @@
 <div class="bookings-container">
-  <h1>bookings-</h1>
+  <h1>Bookings</h1>
   <div class="bookings-info">
     <% @applied_bookings.each do |bookings| %>
-      <p><%= bookings.booking.title %></p>
+      <p><%= bookings.date %></p>
       <p><%= bookings.time %></p>
     <% end %>
   </div>
-
-  <h1>Received bookings-</h1>
-  <div class="bookings-info">
-    <% @received_bookings.each do |bookings| %>
-      <li><%= booking.booking.title %></li>
-      <li><%= booking.time %></li>
-      <% if booking.status == 'pending' %>
-        <%= link_to 'accept', bookings_path(bookings, {status: 'accepted'}), method: :patch %>
-        <%= link_to 'decline', bookings_path(bookings, {status: 'declined'}), method: :patch %>
-      <% else %>
-        <%= bookings.status %>
-      <% end %>
-    <% end  %></ul>
-   </div>
-</div>

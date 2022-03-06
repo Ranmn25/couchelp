@@ -2,34 +2,44 @@
   <div class='dash-grid'>
     <div class='profile-grid'>
       <h4>Profile </h4>
-        <%= cl_image_tag @profile.photo.key, class:"avatar" %>
-        <div class="dashbord-profile-name">
-          <p><%= @profile.first_name %>
+      <%= cl_image_tag @profile.photo.key, class:"avatar" %>
+      <div class="dashbord-profile-name">
+        <p><%= @profile.first_name %>
           <%= @profile.last_name %></p>
-        </div>
+      </div>
     </div>
     <div class='bookings-grid'>
       <h4>Bookings</h4>
+      <% if current_user.is_therapist? %>
         <% @therapist_bookings.each do |booking| %>
           <p>
             <%= booking.date %>
             <%= booking.time %>
             <%= booking.status %>
+            <%= render 'booking_actions', booking: booking %>
           </p>
+          <% end %>
+        <% else %>
+          <% @patient_bookings.each do |booking| %>
+            <p>
+              <%= booking.date %>
+              <%= booking.time %>
+              <%= booking.status %>
+            </p>
+          <% end %>
         <% end %>
-
-    </div>
-    <div class='messages-grid'>
-      <h4>Messages</h4>
-      <p>Nothing to see here </p>
-    </div>
-    <div class='sessions-grid'>
-      <h4>Sessions</h4>
-      <p>Nothing to see here </p>
-    </div>
-    <div class='articles-grid'>
-      <h4>Articles</h4>
-      <p>Nothing to see here </p>
+      </div>
+      <div class='messages-grid'>
+        <h4>Messages</h4>
+        <p>Nothing to see here </p>
+      </div>
+      <div class='sessions-grid'>
+        <h4>Sessions</h4>
+        <p>Nothing to see here </p>
+      </div>
+      <div class='articles-grid'>
+        <h4>Articles</h4>
+        <p>Nothing to see here </p>
+      </div>
     </div>
   </div>
-</div>
