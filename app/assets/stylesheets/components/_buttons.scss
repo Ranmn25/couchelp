@@ -17,3 +17,9 @@
 .button:hover {
   background-color: darken($color: #e6ecff, $amount: 3%);
 }
+
+#reject-btn{
+  background-color: transparent;
+  border: 0.5px red;
+  color: #ff4545;
+}

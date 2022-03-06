@@ -12,34 +12,36 @@
       <h4>Bookings</h4>
       <% if current_user.is_therapist? %>
         <% @therapist_bookings.each do |booking| %>
+          <div class='book-section'>
+            <p>
+              <%= booking.date %>
+              <%= booking.time.strftime('%H:%M') %>
+              <%= render 'booking_actions', booking: booking %>
+              <%= booking.status %>
+            </p>
+          </div>
+        <% end %>
+      <% else %>
+        <% @patient_bookings.each do |booking| %>
           <p>
             <%= booking.date %>
             <%= booking.time %>
             <%= booking.status %>
-            <%= render 'booking_actions', booking: booking %>
           </p>
-          <% end %>
-        <% else %>
-          <% @patient_bookings.each do |booking| %>
-            <p>
-              <%= booking.date %>
-              <%= booking.time %>
-              <%= booking.status %>
-            </p>
-          <% end %>
         <% end %>
-      </div>
-      <div class='messages-grid'>
-        <h4>Messages</h4>
-        <p>Nothing to see here </p>
-      </div>
-      <div class='sessions-grid'>
-        <h4>Sessions</h4>
-        <p>Nothing to see here </p>
-      </div>
-      <div class='articles-grid'>
-        <h4>Articles</h4>
-        <p>Nothing to see here </p>
-      </div>
+      <% end %>
+    </div>
+    <div class='messages-grid'>
+      <h4>Messages</h4>
+      <p>Nothing to see here </p>
+    </div>
+    <div class='sessions-grid'>
+      <h4>Sessions</h4>
+      <p>Nothing to see here </p>
+    </div>
+    <div class='articles-grid'>
+      <h4>Articles</h4>
+      <p>Nothing to see here </p>
     </div>
   </div>
+</div>
