@@ -6,13 +6,13 @@
        data-controller="video-call"
        data-video-call-access-token-value="<%= @twilio_jwt %>"
        data-video-call-room-id-value="<%= @room_id %>"
-       data-video-call-buddy-video-width-value="200"
+       data-video-call-buddy-video-width-value="400"
        >
     <div class="call-video-views">
       <div id="remote-video" data-video-call-target="buddyVideo">
         <div class="no-call" data-video-call-target="noCall">
           No call in progress. Click 'Call' to connect!
-      <%= image_tag("person", :alt => "person", class: "img-video") %>
+      <%= image_tag("the.png", :alt => "doc", class: "img-video") %>
         </div>
         <div class="waiting-for-buddy d-none"
              data-video-call-target="awaitingBuddy">
