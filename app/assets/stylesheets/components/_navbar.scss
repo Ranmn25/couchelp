@@ -9,12 +9,12 @@
 }
 
 #logo{
-  width: 150px;
+  width: 125px;
 }
 
 #wave {
   position: relative;
-  height: 108px;
+  height: 110px;
   width: 100%;
   background:  #30A3FB;
   margin-bottom: 50px;
@@ -43,8 +43,15 @@
 }
 
 #login-btn {
-  background-color: #30A3FB;
-  border-radius: 18px;
+  border: solid #fff;
+  margin-bottom: 30px;
+  height: 42px;
+  background: linear-gradient(180deg, #0089ff 0%, #78d2ff 100%);
+  border-radius: 12px;
+  color: #fff;
+
+}
+
 
   a{
     text-decoration: none;
@@ -53,7 +60,7 @@
     padding-bottom: 15px;
     font-size: 17px;
   }
-}
+
 .logout-bth{
     padding: 15px;
     color: #fff;
