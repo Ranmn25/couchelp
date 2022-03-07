@@ -7,6 +7,9 @@ class BookingsController < ApplicationController
 
   def show
     @chatroom = Booking.find(params[:id])
+    
+    @other_user = @booking.other_user(current_user)
+    setup_video_call_token
   end
 
   def new
@@ -56,5 +59,12 @@ class BookingsController < ApplicationController
 
   def find_therapist
     @therapist = User.find(params[:id])
+  end
+
+  def setup_video_call_token
+    twilio = TwilioService.new
+    twilio.generate_token(current_user, @other_user)
+    @twilio_jwt = twilio.jwt
+    @room_id = twilio.room_id
   end
 end
