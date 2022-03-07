@@ -5,7 +5,7 @@
   <h1>Messenger</h1>
   <div class="messages" data-working-relationship-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <div id='message-cnt'>
+      <div class="message-cnt message-<%= message.user == current_user ? 'current-user' : 'other-user' %>" >
         <%= render "message", message: message %>
       </div>
     <% end %>

@@ -16,7 +16,7 @@
     padding: 1rem;
   }
 
-  #message-cnt{
+  .message-cnt{
     border: 2px solid #30A3FB;
     margin: 10px;
     border-radius: 10px;
@@ -24,6 +24,12 @@
     margin-bottom: 0rem;
     width: 65%;
     margin-bottom: 0px;
+  }
+
+  .message-other-user{
+    margin-left: auto;
+    border: 2px solid #219F94;
+    text-align: right;
   }
 
   #message_content{
