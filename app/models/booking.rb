@@ -11,4 +11,12 @@ class Booking < ApplicationRecord
       self.status = 'pending'
     end
   end
+
+  def other_user(user)
+    return nil if therapist != user && patient != user
+
+    return patient if therapist == user
+
+    return therapist if patient == user
+  end
 end
