@@ -1,0 +1,21 @@
+<div class="notes-card-container">
+  <div>
+    <h1 class="notes-header">Notes for <%= booking.patient.first_name %> <%= booking.patient.last_name %></h1>
+  </div>
+
+  <div class="form-group">
+    <%= simple_form_for [booking, note] do |f| %>
+      <div class="notes-checkbox">
+        <%= f.input_field :is_private, as: :boolean, checked_value: true, unchecked_value: 'false', class: "notes-checkbox" %>  <span class="notes-labeltext">Private</span>
+      </div>
+
+      <div>
+        <%= f.input :content, label: 'Describe the session:', class: "notes-input" %>
+      </div>
+
+      <div class= "notes-submit">
+        <%= f.button :submit, class: 'btnbooking' %>
+      </div>
+    <% end %>
+  </div>
+</div>
