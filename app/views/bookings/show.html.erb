@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <div class="booking_header">
     <h1>Session no. <%= @booking.id %> between Dr. <%= @booking.therapist.first_name %> <%= @booking.therapist.last_name %> and <%= @booking.patient.first_name %> <%= @booking.patient.last_name %></h1>
@@ -41,5 +42,66 @@
         </div>
       </div>
     </div>
+=======
+<div class="container grid-video">
+<div class="video-container">
+  <h1><%= @other_user.full_name %></h1>
+
+  <div class="video-call"
+       data-controller="video-call"
+       data-video-call-access-token-value="<%= @twilio_jwt %>"
+       data-video-call-room-id-value="<%= @room_id %>"
+       data-video-call-buddy-video-width-value="400"
+       >
+    <div class="call-video-views">
+      <div id="remote-video" data-video-call-target="buddyVideo">
+        <div class="no-call" data-video-call-target="noCall">
+          No call in progress. Click 'Call' to connect!
+      <%= image_tag("the.png", :alt => "doc", class: "img-video") %>
+        </div>
+        <div class="waiting-for-buddy d-none"
+             data-video-call-target="awaitingBuddy">
+          Waiting for <%= @other_user.first_name %> to join...
+        </div>
+      </div>
+      <div id="local-video" data-video-call-target="localVideo"></div>
+    </div>
+    <div class="call-buttons">
+      <%= link_to '#',
+                  class: 'call-button btn-start-call call-buttons-first ',
+                  data: {
+                    action: 'click->video-call#joinCall',
+                    video_call_target: 'joinCallButton'
+                  } do %>
+        <i class="fas fa-phone"></i>
+      <% end %>
+        <%= link_to '#',
+                  class: 'call-button btn-start-call call-buttons-secound',
+                  data: {
+                    action: 'click->video-call#joinCall',
+                    video_call_target: 'joinCallButton'
+                  } do %>
+        <i class="fas fa-video"></i>
+      <% end %>
+        <%= link_to '#',
+                  class: 'call-button btn-start-callv call-buttons-three',
+                  data: {
+                    action: 'click->video-call#joinCall',
+                    video_call_target: 'joinCallButton'
+                  } do %>
+    <i class="fas fa-microphone"></i>
+
+      <% end %>
+      <%= link_to '#',
+                  class: 'call-button btn-end-call d-none',
+                  data: {
+                    action: 'click->video-call#endCall',
+                    video_call_target: 'endCallButton'
+                  } do %>
+        <i class="fas fa-phone-slash"></i>
+      <% end %>
+    </div>
+  </div>
+>>>>>>> master
   </div>
 </div>
