@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   end
   resources :articles, only: [:index, :show]
   get '/dashboard', to: 'pages#dashboard'
+
+  resources :working_relationships, only: :show do
+    resources :messages, only: :create
+  end
 end

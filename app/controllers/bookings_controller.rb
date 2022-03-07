@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @chatroom = Booking.find(params[:id])
   end
 
   def new
