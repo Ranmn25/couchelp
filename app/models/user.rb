@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :therapist_bookings, class_name: 'Booking', foreign_key: 'therapist_id'
   has_many :received_bookings, through: :patients, source: :bookings
   has_many :patient_bookings, class_name: 'Booking', foreign_key: 'patient_id'
-
   has_one_attached :photo
+
+  validates :photo, presence: true
 end
