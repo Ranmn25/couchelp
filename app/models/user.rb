@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :patient_bookings, class_name: 'Booking', foreign_key: 'patient_id'
 
   has_one_attached :photo
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
