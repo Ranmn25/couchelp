@@ -1,6 +1,8 @@
-<h2>Sign up</h2>
 
+<div class="container-login">
+  <div class="col-sm-4 col-sm-offset-4">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+ <%= image_tag("signup", :alt => "login-image", class: "img-form" ) %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -18,8 +20,10 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "login-btn" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+ </div>
+    </div>

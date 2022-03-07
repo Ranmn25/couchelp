@@ -3,14 +3,13 @@
     <div>
       <div class="mb-5">
         <div class="row">
-          <h1 class>Book Your Next Appointment</h1>
-          <p class="p-size">Simple | Streamlined | Secure</p>
+          <h1 class="content-form">Update your Booking with Dr. <%= booking.therapist.first_name %> <%= booking.therapist.last_name %></h1>
           <div>
-            <div class="col-md-12 form-group ">
-              <%= simple_form_for [therapist, booking], url: therapist_bookings_path(therapist), method: :post do |f| %>
+            <div class="col-md-12 form-group">
+              <%= simple_form_for(booking) do |f| %>
                 <%= f.input :time, class: "booking-input" %>
                  <%= f.input :date, class: "booking-input" %>
-                <%= f.submit class: "btnbooking" %>
+                <%= f.submit class: "btn btn-primary button-form btn" %>
               <% end %>
             </div>
           </div>
@@ -26,10 +25,8 @@
         </div>
       </div>
     </div>
-
-
   </div>
-  <div class="col-md-6 ">
-    <p> <%= image_tag("book1", :alt => "booking") %></p>
+  <div class="col-md-6 booking-images">
+    <p><%# image_tag("booking_form", :alt => "booking") %></p>
   </div>
 </div>

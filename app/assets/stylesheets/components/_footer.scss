@@ -5,7 +5,6 @@ footer {
   background-size: cover;
   margin-top: -120px;
   padding-top: 300px;
-  padding-bottom: 60px;
 }
 
 footer .section-heading {
@@ -68,6 +67,9 @@ footer .copyright-text p {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   font-size: 15px;
   color: #fff;
+  width: 90%;
+  margin: 0 auto;
+
  p a {
     color: #fff;
     transition: all .5s;
