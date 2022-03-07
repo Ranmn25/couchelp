@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="booking_header">
+    <h1>Session no. <%= @booking.id %> between Dr. <%= @booking.therapist.first_name %> <%= @booking.therapist.last_name %> and <%= @booking.patient.first_name %> <%= @booking.patient.last_name %></h1>
+  </div>
+  <div class="booking_grid">
+    <div class="booking_therapist_profile_card">
+      <%= cl_image_tag @booking.therapist.photo.key, class: "avatar" %>
+      <p>Dr. <%= @booking.therapist.first_name %> <%= @booking.therapist.last_name %></p>
+      <ul>
+          <li><%= @booking.therapist.area_of_expertise %></li>
+          <li>Consulting</li>
+          <li>Relationships</li>
+        </ul>
+    </div>
+    <div class="booking_therapist_notes_card">
+    </div>
+  </div>
+
+  <div class="booking_articles">
+    <h2 class="header2">Recommended Articles:</h2>
+    <div class="article_main">
+      <div class="article_card">
+        <img class="article_card__img" src="https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0NjIxNTc0MQ&ixlib=rb-1.2.1&q=80&w=1080" alt="article preview">
+        <div class="article_card_info">
+          <h4 class="article_card__header">The Things We Don't Say</h4>
+          <p class='article_btn'>View full article</p>
+        </div>
+      </div>
+      <div class="article_card">
+        <img class="article_card__img" src="https://images.unsplash.com/photo-1643865420039-0c4d77d0553f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0NjIxNTgyMA&ixlib=rb-1.2.1&q=80&w=1080" alt="article preview">
+        <div class="article_card_info">
+          <h4 class="article_card__header">Partners in Prevention</h4>
+          <p class='article_btn'>View full article</p>
+        </div>
+      </div>
+      <div class="article_card">
+        <img class="article_card__img" src="https://images.unsplash.com/photo-1644869432047-fa8bdbe849cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0NjIxNjAyNQ&ixlib=rb-1.2.1&q=80&w=1080" class="article_card_image">
+        <div class="article_card_info">
+          <h4 class="article_card__header">The National Suicide Prevention</h4>
+          <p class='article_btn'>View full article</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

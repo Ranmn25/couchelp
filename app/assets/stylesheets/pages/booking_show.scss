@@ -1,0 +1,28 @@
+.booking_articles {
+  text-align: center;
+}
+
+.booking_header {
+  text-align: center;
+}
+
+.booking_therapist_profile_card {
+  border: solid rgb(230, 230, 230) 1px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
+  transition: .2s;
+  padding: 20px 15px;
+  align-items: center;
+
+  li {
+    list-style: none;
+  }
+}
+
+.booking_grid {
+  display: grid;
+  grid-template-columns: 25% auto;
+  gap: 20px;
+}
