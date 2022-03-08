@@ -1,7 +1,9 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.first_name %></strong>
-    <i><%= message.created_at.strftime("%d/%m/%y at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+<div class="message-cnt message-<%= message.user == current_user ? 'current-user' : 'other-user' %>" >
+  <div id="message-<%= message.id %>">
+    <small>
+      <strong><%= message.user.first_name %></strong>
+      <i><%= message.created_at.strftime("%d/%m/%y at %l:%M %p") %></i>
+    </small>
+    <p><%= message.content %></p>
+  </div>
 </div>
