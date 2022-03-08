@@ -13,8 +13,6 @@ class User < ApplicationRecord
 
   validates :photo, presence: true
 
-  has_one_attached :photo
-
   def full_name
     "#{first_name} #{last_name}"
   end
