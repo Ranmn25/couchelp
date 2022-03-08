@@ -50,3 +50,16 @@
   font-weight: bold;
   margin-top: 10px;
 }
+
+.modal-content {
+  width: auto;
+}
+
+.session_status {
+  border: solid 1px rgb(230, 230, 230);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
+  background-color: #fff;
+}
