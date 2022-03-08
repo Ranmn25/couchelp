@@ -12,11 +12,11 @@
 }
 
 .therapist_card {
-  border: solid rgb(230, 230, 230) 1px;
+  border: solid #fff  1px;
   border-radius: 5px;
   text-align: center;
   background-color: #fff;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3rem 6rem #fff;
   transition: 0.2s;
 }
 
@@ -65,7 +65,7 @@
 
   a {
     text-decoration: none;
-    color: #f5f5f5;
+    color: #fff;
     font-size: 18px;
   }
 }
