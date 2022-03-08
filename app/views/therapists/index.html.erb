@@ -1,5 +1,5 @@
 <div class="container therapists_index">
-  <h1>Browse our therapists</h1>
+  <h1>Our Therapists</h1>
 
   <div class="therapists_main">
     <% @therapists.each do |therapist| %>
@@ -8,13 +8,16 @@
         <%= cl_image_tag therapist.photo.key, class:"card__img" %>
         <div class="therapist_card_info">
           <h4 class="therapists_card__header">Dr. <%= therapist.first_name %> <%= therapist.last_name %></h4>
-          <p class="therapists_card__text"><%= therapist.area_of_expertise %></p>
-          <%= link_to 'View full profile', therapist_path(therapist), class: 'therapists_btn' %>
+          <p class="therapists_card__text"><%= therapist.area_of_expertise %>
+          <p class="therapists_btn">
+       <%= link_to 'View Profile', therapist_path(therapist) %>
+          </p>
         </div>
       </div>
     </div>
     <% end %>
   </div>
-
-  <%= link_to 'Back', root_path, class: 'button'%>
+<div class="therapists_btn button">
+  <%= link_to 'Back', root_path%>
+  </div>
 </div>
