@@ -8,12 +8,16 @@ class User < ApplicationRecord
   has_many :received_bookings, through: :patients, source: :bookings
   has_many :patient_bookings, class_name: 'Booking', foreign_key: 'patient_id'
   has_many :working_relationships
-  
+
   has_one_attached :photo
 
   validates :photo, presence: true
 
   has_one_attached :photo
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
   def begin_working_relationship(user)
     relationship = WorkingRelationship.find_for(self, user)
@@ -23,8 +27,5 @@ class User < ApplicationRecord
       relationship = WorkingRelationship.create(therapist: therapist, patient: patient)
     end
     relationship
-
-  def full_name
-    "#{first_name} #{last_name}"
   end
 end

@@ -25,7 +25,7 @@
         <% @patient_bookings.each do |booking| %>
           <p>
             <%= booking.date %>
-            <%= booking.time %>
+            <%= booking.time.strftime('%H:%M') %>
             <%= booking.status %>
           </p>
         <% end %>
