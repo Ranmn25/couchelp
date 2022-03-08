@@ -5,9 +5,7 @@
   <h1>Messenger</h1>
   <div class="messages" data-working-relationship-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <div class="message-cnt message-<%= message.user == current_user ? 'current-user' : 'other-user' %>" >
         <%= render "message", message: message %>
-      </div>
     <% end %>
   </div>
   <%= simple_form_for [@chatroom, @message],
@@ -17,7 +15,8 @@
     <%= f.input :content,
     label: false,
     placeholder: "Write your message here",
-    wrapper_html: {class: "flex-grow-1"}
+    wrapper_html: {class: "flex-grow-1"},
+    input_html: {data: { action: "input->working-relationship-subscription#submitForm"}}
   %>
     <%= f.submit "Send", class: "btn btn-primary send-btn" %>
   <% end %>
