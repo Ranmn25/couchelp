@@ -19,6 +19,7 @@ class User < ApplicationRecord
       relationship = WorkingRelationship.create(therapist: therapist, patient: patient)
     end
     relationship
+  end
 
   def full_name
     "#{first_name} #{last_name}"

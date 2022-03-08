@@ -5,7 +5,6 @@ class NotesController < ApplicationController
   end
 
   def create
-    raise
     @note = Note.new(note_params)
     @booking = Booking.find(params[:booking_id])
     @note.booking = @booking
