@@ -1,61 +1,181 @@
-<div class="container grid-video">
-<div class="video-container">
-  <h1><%= @other_user.full_name %></h1>
+<div class="container">
+  <div class="booking_header">
+    <h1 class="booking_heading">Session no. <%= @booking.id %> between Dr. <%= @booking.therapist.first_name %> <%= @booking.therapist.last_name %> and <%= @booking.patient.first_name %> <%= @booking.patient.last_name %></h1>
+  </div>
 
-  <div class="video-call"
-       data-controller="video-call"
-       data-video-call-access-token-value="<%= @twilio_jwt %>"
-       data-video-call-room-id-value="<%= @room_id %>"
-       data-video-call-buddy-video-width-value="400"
-       >
-    <div class="call-video-views">
-      <div id="remote-video" data-video-call-target="buddyVideo">
-        <div class="no-call" data-video-call-target="noCall">
-          No call in progress. Click 'Call' to connect!
-      <%= image_tag("the.png", :alt => "doc", class: "img-video") %>
-        </div>
-        <div class="waiting-for-buddy d-none"
-             data-video-call-target="awaitingBuddy">
-          Waiting for <%= @other_user.first_name %> to join...
-        </div>
-      </div>
-      <div id="local-video" data-video-call-target="localVideo"></div>
+  <div class="booking_status">
+    <p class="session_status">Session status: <%= @booking.status %></p>
+    <% if @booking.status == 'pending' %>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
+        <%= f.button :submit, 'Accept', class: 'btn btn-primary' %>
+      <% end %>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
+        <%= f.button :submit, 'Reject', class: 'btn btn-warning' %>
+      <% end %>
+    <% elsif @booking.status == 'accepted' %>
+      <%= link_to edit_booking_path(@booking), class: 'btn btn-primary' do %>
+        Edit
+      <% end %>
+        <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Join session
+      </button>
+    <% else %>
+      <%= link_to booking_path(@booking), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } do %>
+        Delete
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="booking_grid">
+    <div class="booking_therapist_profile_card">
+      <%= cl_image_tag @booking.therapist.photo.key, class: "avatar" %>
+      <p class="name_profile_card">Dr. <%= @booking.therapist.first_name %> <%= @booking.therapist.last_name %></p>
+      <ul>
+          <li><%= @booking.therapist.area_of_expertise %></li>
+          <li>Consulting</li>
+          <li>Relationships</li>
+        </ul>
     </div>
-    <div class="call-buttons">
-      <%= link_to '#',
-                  class: 'call-button btn-start-call call-buttons-first ',
-                  data: {
-                    action: 'click->video-call#joinCall',
-                    video_call_target: 'joinCallButton'
-                  } do %>
-        <i class="fas fa-phone"></i>
-      <% end %>
-        <%= link_to '#',
-                  class: 'call-button btn-start-call call-buttons-secound',
-                  data: {
-                    action: 'click->video-call#joinCall',
-                    video_call_target: 'joinCallButton'
-                  } do %>
-        <i class="fas fa-video"></i>
-      <% end %>
-        <%= link_to '#',
-                  class: 'call-button btn-start-callv call-buttons-three',
-                  data: {
-                    action: 'click->video-call#joinCall',
-                    video_call_target: 'joinCallButton'
-                  } do %>
-    <i class="fas fa-microphone"></i>
-
-      <% end %>
-      <%= link_to '#',
-                  class: 'call-button btn-end-call d-none',
-                  data: {
-                    action: 'click->video-call#endCall',
-                    video_call_target: 'endCallButton'
-                  } do %>
-        <i class="fas fa-phone-slash"></i>
+    <div class="booking_therapist_notes_card">
+      <div>
+        <% if current_user == @booking.therapist %>
+          <ul><% @booking.notes.each do |note| %>
+            <% if note.is_private == true %>
+              <li><i class="fas fa-solid fa-lock"></i> <%= note.content %></li>
+            <% elsif note.is_private == false %>
+              <li><i class="fas fa-solid fa-lock-open"></i> <%= note.content %></li>
+            <% else %>
+              <p>You don't have any notes to review for this session</p>
+            <% end %>
+          <% end %></ul>
+        <% else %>
+          <ul><% @booking.notes.each do |note| %>
+            <% if note.is_private == true %>
+            <% elsif note.is_private == false %>
+              <li><%= note.content %></li>
+            <% else %>
+              <p>You don't have any notes to review for this session</p>
+            <% end %>
+          <% end %></ul>
+        <% end %>
+      </div>
+      <% if current_user == @booking.therapist %>
+        <div>
+          <%= link_to 'Add new note', new_booking_note_path(@booking), class: 'btn btn-primary' %>
+        </div>
       <% end %>
     </div>
   </div>
+
+  <div class="booking_articles">
+    <h2 class="header2">Recommended Articles:</h2>
+    <div class="article_main">
+      <div class="article_card">
+        <img class="article_card__img" src="https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0NjIxNTc0MQ&ixlib=rb-1.2.1&q=80&w=1080" alt="article preview">
+        <div class="article_card_info">
+          <h4 class="article_card__header">The Things We Don't Say</h4>
+          <p class='article_btn'>View full article</p>
+        </div>
+      </div>
+      <div class="article_card">
+        <img class="article_card__img" src="https://images.unsplash.com/photo-1643865420039-0c4d77d0553f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0NjIxNTgyMA&ixlib=rb-1.2.1&q=80&w=1080" alt="article preview">
+        <div class="article_card_info">
+          <h4 class="article_card__header">Partners in Prevention</h4>
+          <p class='article_btn'>View full article</p>
+        </div>
+      </div>
+      <div class="article_card">
+        <img class="article_card__img" src="https://images.unsplash.com/photo-1644869432047-fa8bdbe849cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0NjIxNjAyNQ&ixlib=rb-1.2.1&q=80&w=1080" class="article_card_image">
+        <div class="article_card_info">
+          <h4 class="article_card__header">Suicide Prevention</h4>
+          <p class='article_btn'>View full article</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Join the Session</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container grid-video">
+  <div class="video-container">
+    <h1><%= @other_user.full_name %></h1>
+
+    <div class="video-call"
+        data-controller="video-call"
+        data-video-call-access-token-value="<%= @twilio_jwt %>"
+        data-video-call-room-id-value="<%= @room_id %>"
+        data-video-call-buddy-video-width-value="400"
+        >
+      <div class="call-video-views">
+        <div id="remote-video" data-video-call-target="buddyVideo">
+          <div class="no-call" data-video-call-target="noCall">
+            No call in progress. Click 'Call' to connect!
+        <%= image_tag("the.png", :alt => "doc", class: "img-video") %>
+          </div>
+          <div class="waiting-for-buddy d-none"
+              data-video-call-target="awaitingBuddy">
+            Waiting for <%= @other_user.first_name %> to join...
+          </div>
+        </div>
+        <div id="local-video" data-video-call-target="localVideo"></div>
+      </div>
+      <div class="call-buttons">
+        <%= link_to '#',
+                    class: 'call-button btn-start-call call-buttons-first ',
+                    data: {
+                      action: 'click->video-call#joinCall',
+                      video_call_target: 'joinCallButton'
+                    } do %>
+          <i class="fas fa-phone"></i>
+        <% end %>
+          <%= link_to '#',
+                    class: 'call-button btn-start-call call-buttons-secound',
+                    data: {
+                      action: 'click->video-call#joinCall',
+                      video_call_target: 'joinCallButton'
+                    } do %>
+          <i class="fas fa-video"></i>
+        <% end %>
+          <%= link_to '#',
+                    class: 'call-button btn-start-callv call-buttons-three',
+                    data: {
+                      action: 'click->video-call#joinCall',
+                      video_call_target: 'joinCallButton'
+                    } do %>
+      <i class="fas fa-microphone"></i>
+
+        <% end %>
+        <%= link_to '#',
+                    class: 'call-button btn-end-call d-none',
+                    data: {
+                      action: 'click->video-call#endCall',
+                      video_call_target: 'endCallButton'
+                    } do %>
+          <i class="fas fa-phone-slash"></i>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
   </div>
 </div>
