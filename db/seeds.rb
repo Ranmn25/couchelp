@@ -14,15 +14,15 @@ puts 'Creating 5 patients'
 
 patient1 = { first_name: "Filomena", last_name: "Schimmel", email: "filomena@schimmel.com", password: '123456', is_therapist: false }
 patient2 = { first_name: "Laura", last_name: "Sucher", email: "laura@sucher.com", password: '123456', is_therapist: false }
-patient3 = { first_name: "King", last_name: "Ran", email: "king@ran.com", password: '123456', is_therapist: false }
+patient3 = { first_name: "Ran", last_name: "Ran", email: "king@ran.com", password: '123456', is_therapist: false }
 patient4 = { first_name: "Talia", last_name: "Azulay", email: "talia@azulay", password: '123456', is_therapist: false }
 patient5 = { first_name: "Deepti", last_name: "Khatri", email: "deepti@khatri", password: '123456', is_therapist: false }
 
-patientone = User.create!(patient1)
-patienttwo = User.create!(patient2)
-patientthree = User.create!(patient3)
-patientfour = User.create!(patient4)
-patientfive = User.create!(patient5)
+patientone = User.new(patient1)
+patienttwo = User.new(patient2)
+patientthree = User.new(patient3)
+patientfour = User.new(patient4)
+patientfive = User.new(patient5)
 
 puts "#{patientone.first_name} #{patientone.last_name} created"
 puts "#{patienttwo.first_name} #{patienttwo.last_name} created"
@@ -41,6 +41,8 @@ patienttwo.photo.attach(io: file2, filename: 'image2.png', content_type: 'image/
 patientthree.photo.attach(io: file3, filename: 'image3.png', content_type: 'image/png')
 patientfour.photo.attach(io: file4, filename: 'iamge4.png', content_type: 'image/png')
 patientfive.photo.attach(io: file5, filename: 'iamge5.png', content_type: 'image/png')
+
+[patientone, patienttwo, patientthree, patientfour, patientfive].each { |patient| patient.save!}
 
 # Therapist Seed
 puts 'Creating 8 therapists'
@@ -70,14 +72,14 @@ therapist8 = { first_name: "Bushra", last_name: "Niwen", email: "bushra@niwen.co
                is_therapist: true, area_of_expertise: "Burnout", years_of_experience: 19,
                description: "I am glad that you have found me. No matter what situation you are in, there are always at least two solutions to a problem. Please imagine working with me as if I were your companion. Because that is how I understand my task. Together we honestly look at where you are at the moment. Then I accompany you through holistic methods. Many of them you can apply yourself afterwards, so that you don't have to rely on the support of an expert forever."}
 
-therapistone = User.create!(therapist1)
-therapisttwo = User.create!(therapist2)
-therapistthree = User.create!(therapist3)
-therapistfour = User.create!(therapist4)
-therapistfive = User.create!(therapist5)
-therapistsix = User.create!(therapist6)
-therapistseven = User.create!(therapist7)
-therapisteight = User.create!(therapist8)
+therapistone = User.new(therapist1)
+therapisttwo = User.new(therapist2)
+therapistthree = User.new(therapist3)
+therapistfour = User.new(therapist4)
+therapistfive = User.new(therapist5)
+therapistsix = User.new(therapist6)
+therapistseven = User.new(therapist7)
+therapisteight = User.new(therapist8)
 
 puts "#{therapistone.first_name} #{therapistone.last_name} created"
 puts "#{therapisttwo.first_name} #{therapisttwo.last_name} created"
@@ -97,6 +99,8 @@ file6 = URI.open('https://source.unsplash.com/6anudmpILw4')
 file7 = URI.open('https://source.unsplash.com/OwLvUXlCgdY')
 file8 = URI.open('https://source.unsplash.com/lnlSIsiSjjc')
 
+
+
 therapistone.photo.attach(io: file1, filename: 'image1.png', content_type: 'image/png')
 therapisttwo.photo.attach(io: file2, filename: 'image2.png', content_type: 'image/png')
 therapistthree.photo.attach(io: file3, filename: 'image3.png', content_type: 'image/png')
@@ -105,6 +109,8 @@ therapistfive.photo.attach(io: file5, filename: 'iamge5.png', content_type: 'ima
 therapistsix.photo.attach(io: file6, filename: 'iamge6.png', content_type: 'image/png')
 therapistseven.photo.attach(io: file7, filename: 'iamge7.png', content_type: 'image/png')
 therapisteight.photo.attach(io: file8, filename: 'iamge8.png', content_type: 'image/png')
+
+[therapistone, therapisttwo, therapistthree, therapistfour, therapistfive, therapistsix, therapistseven, therapisteight].each { |therapist| therapist.save!}
 
 # Bookings Seed
 booking1 = { date: Date.tomorrow, time: Time.now, status: 'accepted', patient_id: patienttwo.id, therapist_id: therapisttwo.id }
