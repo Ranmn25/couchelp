@@ -11,6 +11,12 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  validates :photo, presence: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def begin_working_relationship(user)
     relationship = WorkingRelationship.find_for(self, user)
     unless relationship

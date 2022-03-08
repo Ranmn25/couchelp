@@ -7,7 +7,6 @@ class Booking < ApplicationRecord
   before_save :reset_status
 
   def reset_status
-    puts 'Resetting'
     if will_save_change_to_date? || will_save_change_to_time?
       self.status = 'pending'
     end
