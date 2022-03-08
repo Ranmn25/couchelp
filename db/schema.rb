@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_115240) do
+ActiveRecord::Schema.define(version: 2022_03_06_145257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,12 +66,12 @@ ActiveRecord::Schema.define(version: 2022_03_02_115240) do
 
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "recipient_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.bigint "working_relationship_id", null: false
     t.index ["user_id"], name: "index_messages_on_user_id"
+    t.index ["working_relationship_id"], name: "index_messages_on_working_relationship_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -101,8 +101,19 @@ ActiveRecord::Schema.define(version: 2022_03_02_115240) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "working_relationships", force: :cascade do |t|
+    t.bigint "patient_id", null: false
+    t.bigint "therapist_id", null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_working_relationships_on_patient_id"
+    t.index ["therapist_id"], name: "index_working_relationships_on_therapist_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "availabilities", "users"
+  add_foreign_key "messages", "working_relationships"
   add_foreign_key "notes", "bookings"
 end
