@@ -144,6 +144,11 @@ Banner Style
 .banner-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  p{
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
 
 }
 

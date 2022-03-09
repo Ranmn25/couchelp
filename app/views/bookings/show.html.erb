@@ -136,7 +136,8 @@
         <div id="remote-video" data-video-call-target="buddyVideo">
           <div class="no-call" data-video-call-target="noCall">
             No call in progress. Click 'Call' to connect!
-        <%= image_tag("the.png", :alt => "doc", class: "img-video") %>
+        <%# image_tag("the.png", :alt => "doc", class: "img-video") %>
+        <%= cl_image_tag(@other_user.photo.key, alt: 'doc', class: 'img-video') %>
           </div>
           <div class="waiting-for-buddy d-none"
               data-video-call-target="awaitingBuddy">
