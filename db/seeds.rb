@@ -44,7 +44,7 @@ patientfive.photo.attach(io: file5, filename: 'iamge5.png', content_type: 'image
 
 [patientone, patienttwo, patientthree, patientfour, patientfive].each { |patient| patient.save!}
 
-# Therapist Seed
+# Therapists Seed
 puts 'Creating 8 therapists'
 
 therapist1 = { first_name: "Selma", last_name: "Kshlerin", email: "selma@kshlerin.com", password: '123456',
