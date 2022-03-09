@@ -12,12 +12,16 @@
 }
 
 .therapist_card {
-  border: solid #fff  1px;
+  border: 1px solid #fff;
   border-radius: 5px;
   text-align: center;
   background-color: #fff;
   box-shadow: 0 3rem 6rem #fff;
   transition: 0.2s;
+}
+
+.therapist_img {
+  border-radius: 5px;
 }
 
 .card__img {
@@ -26,6 +30,7 @@
   height: 18rem;
   object-fit: cover;
   margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 .therapist_card:hover {
