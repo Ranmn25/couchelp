@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :received_bookings, through: :patients, source: :bookings
   has_many :patient_bookings, class_name: 'Booking', foreign_key: 'patient_id'
   has_many :working_relationships
+  has_many :therapists, -> { distinct }, class_name: 'User', through: :patient_bookings
+
 
   has_one_attached :photo
 
@@ -29,5 +31,9 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def next_patient_booking
+    patient_bookings.order(date: :desc).first
   end
 end
