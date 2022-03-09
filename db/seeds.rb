@@ -14,7 +14,7 @@ puts 'Creating 5 patients'
 
 patient1 = { first_name: "Filomena", last_name: "Schimmel", email: "filomena@schimmel.com", password: '123456', is_therapist: false }
 patient2 = { first_name: "Laura", last_name: "Sucher", email: "laura@sucher.com", password: '123456', is_therapist: false }
-patient3 = { first_name: "Ran", last_name: "Ran", email: "king@ran.com", password: '123456', is_therapist: false }
+patient3 = { first_name: "Ran", last_name: "Miles", email: "ran@miles.com", password: '123456', is_therapist: false }
 patient4 = { first_name: "Talia", last_name: "Azulay", email: "talia@azulay", password: '123456', is_therapist: false }
 patient5 = { first_name: "Deepti", last_name: "Khatri", email: "deepti@khatri", password: '123456', is_therapist: false }
 
@@ -32,7 +32,7 @@ puts "#{patientfive.first_name} #{patientfive.last_name} created"
 
 file1 = URI.open('https://source.unsplash.com/I9jIv3Z4Qew')
 file2 = URI.open('https://res.cloudinary.com/ddbbm7ogw/image/upload/v1646579029/Laura_lyn03t.jpg')
-file3 = URI.open('https://res.cloudinary.com/ddbbm7ogw/image/upload/v1646579417/ran_eyt0tl.jpg')
+file3 = URI.open('https://res.cloudinary.com/ddbbm7ogw/image/upload/v1646812467/Ran_patient_dxpl7x.jpg')
 file4 = URI.open('https://res.cloudinary.com/ddbbm7ogw/image/upload/v1646579360/Talia_yhrmfa.jpg')
 file5 = URI.open('https://source.unsplash.com/T05O-kChXTk')
 
@@ -44,7 +44,7 @@ patientfive.photo.attach(io: file5, filename: 'iamge5.png', content_type: 'image
 
 [patientone, patienttwo, patientthree, patientfour, patientfive].each { |patient| patient.save!}
 
-# Therapist Seed
+# Therapists Seed
 puts 'Creating 8 therapists'
 
 therapist1 = { first_name: "Selma", last_name: "Kshlerin", email: "selma@kshlerin.com", password: '123456',
@@ -54,10 +54,10 @@ therapist2 = { first_name: "Hiram", last_name: "Bogan", email: "hiram@bogan.com"
                is_therapist: true, area_of_expertise: "Anxiety", years_of_experience: 17,
                description: "Every therapy draws its effectiveness to a high degree from a sustainable therapeutic relationship. Therefore, in my work with you, an encounter at eye level, characterized by empathy, respect and mutual appreciation, is particularly important to me. I always try to approach my patients with an authentic and compassionate attitude. In this way, we create an atmosphere together that enables you to feel safe and allows you to open up and confront difficult issues." }
 therapist3 = { first_name: "Brent", last_name: "Langworth", email: "brent@langworth", password: '123456',
-               is_therapist: true, area_of_expertise: "Stress Management", years_of_experience: 5.5,
+               is_therapist: true, area_of_expertise: "Depression", years_of_experience: 5.5,
                description: "I work according to a cognitive-behavioral therapy concept, which means that I assume that certain thought patterns/attitudes and behavior patterns that have contributed to the development of the psychological complaints and the symptoms have been learned and can also be unlearned."}
-therapist4 = { first_name: "Johnson", last_name: "Labadie", email: "johnson@labadie.com", password: '123456',
-               is_therapist: true, area_of_expertise: "Depression", years_of_experience: 1,
+therapist4 = { first_name: "Talia", last_name: "Azulay", email: "talia@azulay.com", password: '123456',
+               is_therapist: true, area_of_expertise: "Stress Management", years_of_experience: 1,
                description: "Based on my qualifications and experience, my therapeutic work encompasses the entire spectrum of mental illness. A particular focus is on the treatment of anxiety disorders, depression, obsessive-compulsive disorder, and post-traumatic stress disorder, as well as support for grief reactions, coping with illness, and burn-out. I work with an emphasis in behavioral therapy and also use a variety of interventions tailored to individual cases." }
 therapist5 = { first_name: "Kristyn", last_name: "Lindgren", email: "kristyn@lindgren.com", password: '123456',
                is_therapist: true, area_of_expertise: "Grief and Loss", years_of_experience: 2.5,
@@ -93,13 +93,11 @@ puts "#{therapisteight.first_name} #{therapisteight.last_name} created"
 file1 = URI.open('https://source.unsplash.com/FVh_yqLR9eA')
 file2 = URI.open('https://source.unsplash.com/pTrhfmj2jDA')
 file3 = URI.open('https://source.unsplash.com/7bMdiIqz_J4')
-file4 = URI.open('https://source.unsplash.com/279xIHymPYY')
+file4 = URI.open('https://res.cloudinary.com/ddbbm7ogw/image/upload/v1646812849/Talia_therapist_jq0joq.jpg')
 file5 = URI.open('https://source.unsplash.com/IF9TK5Uy-KI')
 file6 = URI.open('https://source.unsplash.com/6anudmpILw4')
 file7 = URI.open('https://source.unsplash.com/OwLvUXlCgdY')
 file8 = URI.open('https://source.unsplash.com/lnlSIsiSjjc')
-
-
 
 therapistone.photo.attach(io: file1, filename: 'image1.png', content_type: 'image/png')
 therapisttwo.photo.attach(io: file2, filename: 'image2.png', content_type: 'image/png')
