@@ -5,26 +5,38 @@
 
   <div class="booking_status">
     <p class="session_status">Session status: <%= @booking.status %></p>
-    <% if @booking.status == 'pending' %>
-      <%= simple_form_for(@booking) do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
-        <%= f.button :submit, 'Accept', class: 'btn btn-primary' %>
+    <% if current_user == @booking.therapist %>
+      <% if @booking.status == 'pending' %>
+        <%= simple_form_for(@booking) do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
+          <%= f.button :submit, 'Accept', class: 'btn btn-primary' %>
+        <% end %>
+        <%= simple_form_for(@booking) do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
+          <%= f.button :submit, 'Reject', class: 'btn btn-warning' %>
+        <% end %>
+      <% elsif @booking.status == 'accepted' %>
+        <%= link_to edit_booking_path(@booking), class: 'btn btn-primary' do %>
+          Edit
+        <% end %>
+          <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Join session
+        </button>
+      <% else %>
+        <%= link_to booking_path(@booking), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } do %>
+          Delete
+        <% end %>
       <% end %>
-      <%= simple_form_for(@booking) do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
-        <%= f.button :submit, 'Reject', class: 'btn btn-warning' %>
-      <% end %>
-    <% elsif @booking.status == 'accepted' %>
-      <%= link_to edit_booking_path(@booking), class: 'btn btn-primary' do %>
-        Edit
-      <% end %>
-        <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Join session
-      </button>
     <% else %>
-      <%= link_to booking_path(@booking), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } do %>
-        Delete
+      <% if @booking.status == 'accepted' %>
+        <%= link_to edit_booking_path(@booking), class: 'btn btn-primary' do %>
+          Edit
+        <% end %>
+          <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Join session
+        </button>
       <% end %>
     <% end %>
   </div>
