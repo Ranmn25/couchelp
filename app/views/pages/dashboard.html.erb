@@ -36,7 +36,30 @@
             <h5>5</h5>
           </i>
         </div>
-      </div>
+      </div> %>
+
+    <div class='bookings-grid'>
+      <h4>Bookings</h4>
+      <%= if current_user.is_therapist?
+        <% @therapist_bookings.each do |booking| %>
+          <div class='book-section'>
+            <p>
+              <%= booking.date %>
+              <%= booking.time.strftime('%H:%M') %>
+              <%= render 'booking_actions', booking: booking %>
+              <%= booking.status %>
+            </p>
+          </div>
+        <% end %>
+      <% else %>
+        <% @patient_bookings.each do |booking| %>
+          <p>
+            <%= booking.date %>
+            <%= booking.time.strftime('%H:%M') %>
+            <%= booking.status %>
+          </p>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <div class="col-xl-2 col-sm-4 stretch-card grid-margin">

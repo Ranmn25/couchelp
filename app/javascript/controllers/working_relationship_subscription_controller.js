@@ -8,6 +8,10 @@ export default class extends Controller {
   }
   static targets = ["messages", "form"]
 
+  submitForm(evt) {
+    console.log('form submited', evt.target.value);
+  }
+
   #resetForm() {
     this.formTarget.reset()
   }

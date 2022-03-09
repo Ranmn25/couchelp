@@ -10,11 +10,14 @@ class User < ApplicationRecord
   has_many :working_relationships
   has_many :therapists, -> { distinct }, class_name: 'User', through: :patient_bookings
 
+
   has_one_attached :photo
 
   validates :photo, presence: true
 
-  has_one_attached :photo
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
   def begin_working_relationship(user)
     relationship = WorkingRelationship.find_for(self, user)

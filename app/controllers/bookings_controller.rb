@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
     @booking.therapist = @therapist
     @booking.status = 'pending'
     if @booking.save
+      patient.begin_working_relationship(@therapist)
       redirect_to dashboard_path, notice: 'Booked successfully.'
     else
       render :new
