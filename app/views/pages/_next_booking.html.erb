@@ -1,0 +1,12 @@
+<% if booking  %>
+  <div class="next-booking">
+    <div class="next-booking-left">
+      <%= cl_image_tag booking.therapist.photo.key, class: "avatar" %>
+      <h3> <%= booking.therapist.full_name %></h3>
+    </div>
+    <div class="next-booking-right">
+      <%= booking.date.strftime("%A, %b %d") %>
+    </div>
+  </div>
+<% else  %>
+<% end %>
