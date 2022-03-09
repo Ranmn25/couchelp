@@ -1,47 +1,193 @@
-<div class='container'>
-  <div class='dash-grid'>
-    <div class='profile-grid'>
-      <h4>Profile </h4>
-      <%= cl_image_tag @profile.photo.key, class:"avatar" %>
-      <div class="dashbord-profile-name">
-        <p><%= @profile.first_name %>
-          <%= @profile.last_name %></p>
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+<div class="col-xl-8 stretch-card grid-margin">
+                    <div class="title-banner">
+                        <div class="d-lg-flex justify-content-between">
+                            <div class="mr-4">
+                                <h3>How are feeling today ?</h3>
+                                <p class="m-0">Get unlimited Therapist consultations and much more with Couch</p>
+                            </div>
+                   <%= image_tag("dash.png", :alt => "booking", class: "img-size") %>
+                        </div>
+                    </div>
+                </div>
+
+<div class="row margin-row">
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card1">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <div class="badge btn-facebook">New</div>
+          <span class="iconify" data-icon="mdi:stethoscope" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Bookings</h5>
+            <h5>15</h5>
+          </i>
+        </div>
       </div>
     </div>
-    <div class='bookings-grid'>
-      <h4>Bookings</h4>
-      <% if current_user.is_therapist? %>
-        <% @therapist_bookings.each do |booking| %>
-          <div class='book-section'>
-            <p>
-              <%= booking.date %>
-              <%= booking.time.strftime('%H:%M') %>
-              <%= render 'booking_actions', booking: booking %>
-              <%= booking.status %>
-            </p>
+  </div>
+  <%# <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card1">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <span class="iconify" data-icon="mdi:human-child" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Thrapists</h5>
+            <h5>5</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card1">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <span class="iconify" data-icon="mdi:file-document-multiple" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Reports</h5>
+            <h5>45</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card1">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <span class="iconify" data-icon="mdi:calendar-clock" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Sessions</h5>
+            <h5>15</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row"><div class="col-xl-8"><div class="card1">
+<div class="card-header border-0">
+<div class="row align-items-center">
+<div class="col"><h3 class="mb-0">Page visits</h3></div>
+<div class="col text-right">
+<a href="#!" class="btn btn-sm btn-primary">See all</a>
+</div>
+</div>
+</div>
+<div class="table-responsive">
+<!-- Projects table -->
+<table class="table align-items-center table-flush">
+<thead class="thead-light">
+<tr><th scope="col">Page name</th>
+<th scope="col">Visitors</th>
+<th scope="col">Unique users</th>
+<th scope="col">Bounce rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">/dashboard/</th>
+<td>4,569</td>
+<td>340</td>
+<td>
+<i class="fas fa-arrow-up text-success mr-3">
+</i> 46,53%</td>
+</tr>
+<tr>
+<th scope="row">/dashboard/index.html</th>
+<td>3,985</td>
+<td>319</td>
+<td>
+<i class="fas fa-arrow-down text-warning mr-3">
+</i> 46,53%</td>
+</tr>
+<tr>
+<th scope="row">/dashboard/charts.html</th>
+<td>3,513</td>
+<td>294</td>
+<td>
+<i class="fas fa-arrow-down text-warning mr-3">
+</i> 36,49%</td>
+</tr>
+<tr>
+<th scope="row">/dashboard/tables.html</th>
+<td>2,050</td>
+<td>147</td>
+<td><i class="fas fa-arrow-up text-success mr-3">
+</i> 50,87%</td></tr><tr><th scope="row">/dashboard/profile.html</th>
+<td>1,795</td><td>190</td><td><i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%</td></tr></tbody></table></div></div></div><div class="col-xl-4"><div class="card1"><div class="card-header border-0"><div class="row align-items-center"><div class="col"><h3 class="mb-0">Social traffic</h3></div><div class="col text-right"><a href="#!" class="btn btn-sm btn-primary">See all</a></div></div></div><div class="table-responsive"><!-- Projects table --><table class="table align-items-center table-flush"><thead class="thead-light"><tr><th scope="col">Referral</th><th scope="col">Visitors</th><th scope="col"></th></tr></thead><tbody><tr><th scope="row">Facebook</th><td>1,480</td><td><div class="d-flex align-items-center"><span class="mr-2">60%</span><div><div class="progress"><div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div></div></div></div></td></tr><tr><th scope="row">Facebook</th><td>5,480</td><td><div class="d-flex align-items-center"><span class="mr-2">70%</span><div><div class="progress"><div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div></div></div></div></td></tr><tr><th scope="row">Google</th><td>4,807</td><td><div class="d-flex align-items-center"><span class="mr-2">80%</span><div><div class="progress"><div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div></div></div></div></td></tr><tr><th scope="row">Instagram</th><td>3,678</td><td><div class="d-flex align-items-center"><span class="mr-2">75%</span><div><div class="progress"><div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div></div></div></div></td></tr><tr><th scope="row">twitter</th><td>2,645</td><td><div class="d-flex align-items-center"><span class="mr-2">30%</span><div><div class="progress"><div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div></div></div></div></td></tr></tbody></table></div></div></div></div>
+ %>
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="dashboard">
+    <div class="dashboard-top">
+      <div class="dashboard-top-left">
+        <h4>My Profile</h4>
+        <%= cl_image_tag current_user.photo.key, class: "avatar1" %>
+        <div class="therapist-name"><%= current_user.description %></div>
+      </div>
+      <div class="dashboard-top-right">
+            <h4>Next Meeting</h4>
+
+        <%= render "next_booking", booking: current_user.next_patient_booking %>
+      </div>
+    </div>
+    <div class="dashboard-main">
+      <div class="my-therapists">
+        <h4 class="title-list">My Therapists</h4>
+        <% current_user.therapists.each do |therapist| %>
+          <div class="therapist-list-item">
+            <%= cl_image_tag therapist.photo.key, class: "avatar1" %>
+            <h4 class="therapist-name"><%= therapist.full_name %></h4>
+            <div class="btn-therapist d-flex">
+
+              <div class="white-button first-button scroll-to-section">
+
+                <%= link_to "Messages", new_therapist_message_path(therapist), class: "margin-btn"%>
+              </div>
+              <div class="white-button first-button scroll-to-section">
+
+                <% booking = therapist.therapist_bookings.where(patient: current_user) %>
+               <%= link_to "Join Meeting", booking_path(booking) %>
+              </div>
+            </div>
           </div>
         <% end %>
-      <% else %>
-        <% @patient_bookings.each do |booking| %>
-          <p>
-            <%= booking.date %>
-            <%= booking.time %>
-            <%= booking.status %>
-          </p>
-        <% end %>
-      <% end %>
-    </div>
-    <div class='messages-grid'>
-      <h4>Messages</h4>
-      <p>Nothing to see here </p>
-    </div>
-    <div class='sessions-grid'>
-      <h4>Sessions</h4>
-      <p>Nothing to see here </p>
-    </div>
-    <div class='articles-grid'>
-      <h4>Articles</h4>
-      <p>Nothing to see here </p>
+      </div>
+      <div class="my-bookings">
+        <h4> Recent Appointments</h4>
+        <table class="w-100">
+          <thead>
+            <tr role="row">
+              <th rowspan="1" colspan="1"> Therapist </th>
+              <th rowspan="1" colspan="1"> Date </th>
+              <th rowspan="1" colspan="1"> Time </th>
+              <th rowspan="1" colspan="1"> Status </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @patient_bookings.each do |booking| %>
+              <tr class="booking-row">
+                <td>
+                  <%= cl_image_tag booking.therapist.photo.key, class: "avatar" %>
+                  <%= booking.therapist.full_name %>
+                </td>
+                <td><%= booking.date.strftime("%A, %b %d") %></td>
+                <td><%= booking.time.strftime("%H:%m") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

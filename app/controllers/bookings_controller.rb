@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
 
   def show
     @chatroom = Booking.find(params[:id])
-    
     @other_user = @booking.other_user(current_user)
     setup_video_call_token
   end
