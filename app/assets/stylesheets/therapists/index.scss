@@ -9,15 +9,18 @@
   grid-template-rows: auto;
   gap: 25px 20px;
   padding: 15px;
+
 }
+
 
 .therapist_card {
   border: 1px solid #fff;
   border-radius: 5px;
   text-align: center;
-  background-color: #fff;
+  background-color: #0d6efd0d !important;
   box-shadow: 0 3rem 6rem #fff;
   transition: 0.2s;
+  border-radius: 30px;
 }
 
 .therapist_img {
@@ -81,4 +84,10 @@
 
 .therapist_card_info {
   padding: 30px 20px !important;
+}
+
+
+
+.show-info {
+  color: #000 !important;
 }

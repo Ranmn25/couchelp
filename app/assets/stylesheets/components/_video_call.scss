@@ -38,8 +38,9 @@
   display: flex;
   justify-content: space-around;
   bottom: 20px;
-  right:310px;
   size: 30px;
+  width: 50%;
+    left: 25%;
 
 .call-buttons-first{
   display: inline-block !important;
@@ -156,16 +157,16 @@
 .video-container{
   position: relative;
   h1{
-    position:absolute;
-    right: 25%;
-    left: 25%;
+    position: absolute;
+    left: 12.5%;
     z-index: 99;
     color: #fff;
     text-align: center;
-    top: 60px;
+    width: 75%;
+    top: 45px;
+}
 
 }
-  }
   .video-call-actions{
   display: flex;
   justify-content: space-between;
@@ -177,7 +178,9 @@
 
 }
 .img-video{
-height: 240px;
-margin-top: 50px;
-
+  height: 240px;
+  margin-top: 50px;
+  border-radius: 50%;
+  width: 240px;
+  object-fit: cover;
 }
