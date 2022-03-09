@@ -1,155 +1,15 @@
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <div class="col-xl-8 stretch-card grid-margin">
-                    <div class="title-banner">
-                        <div class="d-lg-flex justify-content-between">
-                            <div class="mr-4">
-                                <h3>How are feeling today ?</h3>
-                                <p class="m-0">Get unlimited Therapist consultations and much more with Couch</p>
-                            </div>
-                   <%= image_tag("dash.png", :alt => "booking", class: "img-size") %>
-                        </div>
-                    </div>
-                </div>
-
-<div class="row margin-row">
-  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
-    <div class="card1">
-      <div class="card-body">
-        <div class="text-center hospital-features">
-          <div class="badge btn-facebook">New</div>
-          <span class="iconify" data-icon="mdi:stethoscope" style="color: #ff0854;" data-width="50" data-height="50"></span>
-          <i class="mdi mdi-stethoscope icon-md text-danger">
-            <h5 class="font-weight-normal">Bookings</h5>
-            <h5>15</h5>
-          </i>
-        </div>
+  <div class="title-banner">
+    <div class="d-lg-flex justify-content-between">
+      <div class="mr-4">
+        <h3>How are feeling today ?</h3>
+        <p class="m-0">Get unlimited Therapist consultations and much more with Couch</p>
       </div>
-    </div>
-  </div>
-  <%# <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
-    <div class="card1">
-      <div class="card-body">
-        <div class="text-center hospital-features">
-          <span class="iconify" data-icon="mdi:human-child" style="color: #ff0854;" data-width="50" data-height="50"></span>
-          <i class="mdi mdi-stethoscope icon-md text-danger">
-            <h5 class="font-weight-normal">Thrapists</h5>
-            <h5>5</h5>
-          </i>
-        </div>
-      </div> %>
-
-    <div class='bookings-grid'>
-      <h4>Bookings</h4>
-      <%= if current_user.is_therapist?
-        <% @therapist_bookings.each do |booking| %>
-          <div class='book-section'>
-            <p>
-              <%= booking.date %>
-              <%= booking.time.strftime('%H:%M') %>
-              <%= render 'booking_actions', booking: booking %>
-              <%= booking.status %>
-            </p>
-          </div>
-        <% end %>
-      <% else %>
-        <% @patient_bookings.each do |booking| %>
-          <p>
-            <%= booking.date %>
-            <%= booking.time.strftime('%H:%M') %>
-            <%= booking.status %>
-          </p>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
-    <div class="card1">
-      <div class="card-body">
-        <div class="text-center hospital-features">
-          <span class="iconify" data-icon="mdi:file-document-multiple" style="color: #ff0854;" data-width="50" data-height="50"></span>
-          <i class="mdi mdi-stethoscope icon-md text-danger">
-            <h5 class="font-weight-normal">Reports</h5>
-            <h5>45</h5>
-          </i>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
-    <div class="card1">
-      <div class="card-body">
-        <div class="text-center hospital-features">
-          <span class="iconify" data-icon="mdi:calendar-clock" style="color: #ff0854;" data-width="50" data-height="50"></span>
-          <i class="mdi mdi-stethoscope icon-md text-danger">
-            <h5 class="font-weight-normal">Sessions</h5>
-            <h5>15</h5>
-          </i>
-        </div>
-      </div>
+      <%= image_tag("dash.png", :alt => "booking", class: "img-size") %>
     </div>
   </div>
 </div>
-
-<div class="row"><div class="col-xl-8"><div class="card1">
-<div class="card-header border-0">
-<div class="row align-items-center">
-<div class="col"><h3 class="mb-0">Page visits</h3></div>
-<div class="col text-right">
-<a href="#!" class="btn btn-sm btn-primary">See all</a>
-</div>
-</div>
-</div>
-<div class="table-responsive">
-<!-- Projects table -->
-<table class="table align-items-center table-flush">
-<thead class="thead-light">
-<tr><th scope="col">Page name</th>
-<th scope="col">Visitors</th>
-<th scope="col">Unique users</th>
-<th scope="col">Bounce rate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th scope="row">/dashboard/</th>
-<td>4,569</td>
-<td>340</td>
-<td>
-<i class="fas fa-arrow-up text-success mr-3">
-</i> 46,53%</td>
-</tr>
-<tr>
-<th scope="row">/dashboard/index.html</th>
-<td>3,985</td>
-<td>319</td>
-<td>
-<i class="fas fa-arrow-down text-warning mr-3">
-</i> 46,53%</td>
-</tr>
-<tr>
-<th scope="row">/dashboard/charts.html</th>
-<td>3,513</td>
-<td>294</td>
-<td>
-<i class="fas fa-arrow-down text-warning mr-3">
-</i> 36,49%</td>
-</tr>
-<tr>
-<th scope="row">/dashboard/tables.html</th>
-<td>2,050</td>
-<td>147</td>
-<td><i class="fas fa-arrow-up text-success mr-3">
-</i> 50,87%</td></tr><tr><th scope="row">/dashboard/profile.html</th>
-<td>1,795</td><td>190</td><td><i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%</td></tr></tbody></table></div></div></div><div class="col-xl-4"><div class="card1"><div class="card-header border-0"><div class="row align-items-center"><div class="col"><h3 class="mb-0">Social traffic</h3></div><div class="col text-right"><a href="#!" class="btn btn-sm btn-primary">See all</a></div></div></div><div class="table-responsive"><!-- Projects table --><table class="table align-items-center table-flush"><thead class="thead-light"><tr><th scope="col">Referral</th><th scope="col">Visitors</th><th scope="col"></th></tr></thead><tbody><tr><th scope="row">Facebook</th><td>1,480</td><td><div class="d-flex align-items-center"><span class="mr-2">60%</span><div><div class="progress"><div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div></div></div></div></td></tr><tr><th scope="row">Facebook</th><td>5,480</td><td><div class="d-flex align-items-center"><span class="mr-2">70%</span><div><div class="progress"><div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div></div></div></div></td></tr><tr><th scope="row">Google</th><td>4,807</td><td><div class="d-flex align-items-center"><span class="mr-2">80%</span><div><div class="progress"><div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div></div></div></div></td></tr><tr><th scope="row">Instagram</th><td>3,678</td><td><div class="d-flex align-items-center"><span class="mr-2">75%</span><div><div class="progress"><div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div></div></div></div></td></tr><tr><th scope="row">twitter</th><td>2,645</td><td><div class="d-flex align-items-center"><span class="mr-2">30%</span><div><div class="progress"><div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div></div></div></div></td></tr></tbody></table></div></div></div></div>
- %>
-
-
-
-
-
-
-
-
 <div class="container">
   <div class="dashboard">
     <div class="dashboard-top">
@@ -159,8 +19,7 @@
         <div class="therapist-name"><%= current_user.description %></div>
       </div>
       <div class="dashboard-top-right">
-            <h4>Next Meeting</h4>
-
+        <h4>Next Meeting</h4>
         <%= render "next_booking", booking: current_user.next_patient_booking %>
       </div>
     </div>
@@ -172,15 +31,12 @@
             <%= cl_image_tag therapist.photo.key, class: "avatar1" %>
             <h4 class="therapist-name"><%= therapist.full_name %></h4>
             <div class="btn-therapist d-flex">
-
-              <div class="white-button first-button scroll-to-section">
-
+              <div class="theme-bg ">
                 <%= link_to "Messages", new_therapist_message_path(therapist), class: "margin-btn"%>
               </div>
-              <div class="white-button first-button scroll-to-section">
-
-                <% booking = therapist.therapist_bookings.where(patient: current_user) %>
-               <%= link_to "Join Meeting", booking_path(booking) %>
+              <div class="theme-bg2">
+                <% booking = therapist.therapist_bookings.where(patient: current_user).order(:date).first %>
+                <%= link_to "Join Meeting", booking_path(booking), class: "margin-btn" %>
               </div>
             </div>
           </div>
@@ -194,11 +50,11 @@
               <th rowspan="1" colspan="1"> Therapist </th>
               <th rowspan="1" colspan="1"> Date </th>
               <th rowspan="1" colspan="1"> Time </th>
-              <th rowspan="1" colspan="1"> Status </th>
+              <th id="status-header" rowspan="1" colspan="1"> Status </th>
             </tr>
           </thead>
           <tbody>
-            <% @patient_bookings.each do |booking| %>
+            <% [@patient_bookings + @therapist_bookings].flatten.each do |booking| %>
               <tr class="booking-row">
                 <td>
                   <%= cl_image_tag booking.therapist.photo.key, class: "avatar" %>
@@ -206,6 +62,10 @@
                 </td>
                 <td><%= booking.date.strftime("%A, %b %d") %></td>
                 <td><%= booking.time.strftime("%H:%m") %></td>
+               <%# <td><a href="#!" class="label theme-bg2 text-white f-12">Reject</a>
+               <a href="#!" class="label theme-bg text-white f-12">Approve</a></td> %>
+               <%= render 'pages/booking_actions', booking: booking %>
+
               </tr>
             <% end %>
           </tbody>
@@ -213,4 +73,59 @@
       </div>
     </div>
   </div>
+  <div class="row margin-row">
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <div class="badge btn-facebook">New</div>
+          <span class="iconify" data-icon="mdi:stethoscope" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Bookings</h5>
+            <h5>15</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <span class="iconify" data-icon="mdi:human-child" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Thrapists</h5>
+            <h5>5</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <span class="iconify" data-icon="mdi:file-document-multiple" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Reports</h5>
+            <h5>45</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <span class="iconify" data-icon="mdi:calendar-clock" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Sessions</h5>
+            <h5>15</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

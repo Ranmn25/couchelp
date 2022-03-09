@@ -1,0 +1,149 @@
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+<div class="col-xl-8 stretch-card grid-margin">
+  <div class="title-banner">
+    <div class="d-lg-flex justify-content-between">
+      <div class="mr-4">
+        <h3>How are feeling today ?</h3>
+        <p class="m-0">Get unlimited Therapist consultations and much more with Couch</p>
+      </div>
+      <%= image_tag("dash.png", :alt => "booking", class: "img-size") %>
+    </div>
+  </div>
+</div>
+<div class="row margin-row">
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card1">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <div class="badge btn-facebook">New</div>
+          <span class="iconify" data-icon="mdi:stethoscope" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Bookings</h5>
+            <h5>15</h5>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+    <div class="card1">
+      <div class="card-body">
+        <div class="text-center hospital-features">
+          <span class="iconify" data-icon="mdi:human-child" style="color: #ff0854;" data-width="50" data-height="50"></span>
+          <i class="mdi mdi-stethoscope icon-md text-danger">
+            <h5 class="font-weight-normal">Thrapists</h5>
+            <h5>5</h5>
+          </i>
+        </div>
+      </div>
+  <div class='bookings-grid'>
+    <h4>Bookings</h4>
+    <% if current_user.is_therapist?
+      <% @therapist_bookings.each do |booking| %>
+        <div class='book-section'>
+          <p>
+            <%= booking.date %>
+            <%= booking.time.strftime('%H:%M') %>
+            <%= render 'booking_actions', booking: booking %>
+            <%= booking.status %>
+          </p>
+        </div>
+      <% end %>
+    <% else %>
+      <% @patient_bookings.each do |booking| %>
+        <p>
+          <%= booking.date %>
+          <%= booking.time.strftime('%H:%M') %>
+          <%= booking.status %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+</div> %>
+<div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+  <div class="card1">
+    <div class="card-body">
+      <div class="text-center hospital-features">
+        <span class="iconify" data-icon="mdi:file-document-multiple" style="color: #ff0854;" data-width="50" data-height="50"></span>
+        <i class="mdi mdi-stethoscope icon-md text-danger">
+          <h5 class="font-weight-normal">Reports</h5>
+          <h5>45</h5>
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xl-2 col-sm-4 stretch-card grid-margin">
+  <div class="card1">
+    <div class="card-body">
+      <div class="text-center hospital-features">
+        <span class="iconify" data-icon="mdi:calendar-clock" style="color: #ff0854;" data-width="50" data-height="50"></span>
+        <i class="mdi mdi-stethoscope icon-md text-danger">
+          <h5 class="font-weight-normal">Sessions</h5>
+          <h5>15</h5>
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container">
+  <div class="dashboard">
+    <div class="dashboard-top">
+      <div class="dashboard-top-left">
+        <h4>My Profile</h4>
+        <%= cl_image_tag current_user.photo.key, class: "avatar1" %>
+        <div class="therapist-name"><%= current_user.description %></div>
+      </div>
+      <div class="dashboard-top-right">
+        <h4>Next Meeting</h4>
+        <%= render "next_booking", booking: current_user.next_patient_booking %>
+      </div>
+    </div>
+    <div class="dashboard-main">
+      <div class="my-therapists">
+        <h4 class="title-list">My Therapists</h4>
+        <% current_user.therapists.each do |therapist| %>
+          <div class="therapist-list-item">
+            <%= cl_image_tag therapist.photo.key, class: "avatar1" %>
+            <h4 class="therapist-name"><%= therapist.full_name %></h4>
+            <div class="btn-therapist d-flex">
+              <div class="white-button first-button scroll-to-section">
+                <%= link_to "Messages", new_therapist_message_path(therapist), class: "margin-btn"%>
+              </div>
+              <div class="white-button first-button scroll-to-section">
+                <% booking = therapist.therapist_bookings.where(patient: current_user).order(:date).first %>
+                <%= link_to "Join Meeting", booking_path(booking) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="my-bookings">
+        <h4> Recent Appointments</h4>
+        <table class="w-100">
+          <thead>
+            <tr role="row">
+              <th rowspan="1" colspan="1"> Therapist </th>
+              <th rowspan="1" colspan="1"> Date </th>
+              <th rowspan="1" colspan="1"> Time </th>
+              <th rowspan="1" colspan="1"> Status </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @patient_bookings.each do |booking| %>
+              <tr class="booking-row">
+                <td>
+                  <%= cl_image_tag booking.therapist.photo.key, class: "avatar" %>
+                  <%= booking.therapist.full_name %>
+                </td>
+                <td><%= booking.date.strftime("%A, %b %d") %></td>
+                <td><%= booking.time.strftime("%H:%m") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
