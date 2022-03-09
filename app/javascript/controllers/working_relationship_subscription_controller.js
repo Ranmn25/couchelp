@@ -4,9 +4,21 @@ import consumer from "../channels/consumer"
 
 export default class extends Controller {
   static values = {
-    workingRelationshipId: Number
+    workingRelationshipId: Number,
+    currentUserId: Number
   }
-  static targets = ["messages", "form"]
+  static targets = ["messages", "form", "message"]
+
+  #renderMessageDivs() {
+    this.messageTargets.forEach((div) => {
+      const messageUserId = div.dataset.senderId
+      if (messageUserId == this.currentUserIdValue){
+        div.classList.add("message-current-user")
+      } else{
+        div.classList.add("message-other-user")
+      }
+    })
+  }
 
   submitForm(evt) {
     console.log('form submited', evt.target.value);
@@ -21,6 +33,7 @@ export default class extends Controller {
   }
 
   connect() {
+    this.#renderMessageDivs()
     this.channel = consumer.subscriptions.create(
       {
         channel: "WorkingRelationshipChannel",
@@ -29,6 +42,7 @@ export default class extends Controller {
       {
         received: (data) => {
           this.messagesTarget.insertAdjacentHTML("beforeend", data)
+          this.#renderMessageDivs()
           this.#scrollMessagesToEnd()
           this.#resetForm()
         }

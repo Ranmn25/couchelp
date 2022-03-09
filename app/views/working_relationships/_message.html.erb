@@ -1,4 +1,4 @@
-<div class="message-cnt message-<%= message.user == current_user ? 'current-user' : 'other-user' %>" >
+<div data-working-relationship-subscription-target="message" data-sender-id="<%= message.user.id %>" class="message-cnt">
   <div id="message-<%= message.id %>">
     <small>
       <strong><%= message.user.first_name %></strong>
