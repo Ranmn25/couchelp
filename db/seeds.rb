@@ -65,7 +65,7 @@ therapist5 = { first_name: "Kristyn", last_name: "Lindgren", email: "kristyn@lin
 therapist6 = { first_name: "Hallvard", last_name: "Stacks", email: "hallvard@stacks.com", password: '123456',
                is_therapist: true, area_of_expertise: "Couple therapy", years_of_experience: 30,
                description: "My personal attitude from my work as a psychologist, coach & intercultural manager in practices, institutions & companies - also in the treatment of mental illness is: Not looking at illnesses or problems, but focusing on your individual resources & strengths is what really gets you ahead. In my psychological work, the change of perspective is in the foreground away from the treatment of clinical pathology & pigeonholing to prevention & the promotion of your mental health."}
-therapist7 = { first_name: "Posy", last_name: "Hunter", email: "posy@hunter.com", password: '123456',
+therapist7 = { first_name: "Muriel", last_name: "Hunter", email: "posy@hunter.com", password: '123456',
                is_therapist: true, area_of_expertise: "Burnout", years_of_experience: 11,
                description: "My professional assessment, already in the first session, gives a much higher degree of clarity about which starting points you can choose to positively influence your situation. No matter if or how often you take advantage of further consultations. I provide you with effective tools, offer new perspectives, and impart important work psychology information that you can use to continue working on your own. Take a look at my corresponding individual practice services."}
 therapist8 = { first_name: "Bushra", last_name: "Niwen", email: "bushra@niwen.com", password: '123456',
